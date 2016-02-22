@@ -29,11 +29,16 @@ $(document).ready(function(){
 
     var socket = io();
 
+    //Updates Patient List
     socket.on('send list', function (data) {
     	console.log("sent list");
-    	var compiledHtml = template(data);
-    	$('#visitor-list').html(compiledHtml);
+    	refreshList(data);
   	});
+
+  	function refreshList(list){
+  		var compiledHtml = template(list);
+    	$('#visitor-list').html(compiledHtml);
+  	}
 
 	var source = $("#visitor-list-template").html();
 	var template = Handlebars.compile(source);
@@ -42,7 +47,7 @@ $(document).ready(function(){
 	$('#visitor-list').html(compiledHtml);*/
 
 
-/*
+	/*
 	var patientList = socket.on('patient list',function(patientList){
 		var compiledHtml = template(patientList);
 		$('#visitor-list').html(compiledHtml);
