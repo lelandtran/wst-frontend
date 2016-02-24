@@ -34,12 +34,15 @@ var visitor ={
 		checkin: "1:37PM"
 	}
 
-var visitors = [visitor,visitorTwo,visitorThree,visitorFour];
+var visitors = [visitor,visitorTwo];
 io.on('connection', function(socket){
   console.log('a user connected');
-
   io.emit('send list', visitors);
 
+});
+
+io.on('updated list',function(updatedList){
+	io.emit('send list',visitors);
 });
 
 server.listen(3000);
@@ -50,5 +53,6 @@ var visitor = {
 	checkin: "2:15PM"
 }
 console.log("sending over: " + visitor.name);
+
 
 
