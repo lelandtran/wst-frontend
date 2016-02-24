@@ -19,5 +19,4 @@ $(document).ready(function(){
 	var source = $("#visitor-list-template").html();
 	var template = Handlebars.compile(source);
 
-
 });
