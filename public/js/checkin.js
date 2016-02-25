@@ -7,8 +7,9 @@ $(document).ready(function(){
         console.log("data submitted");
         var data = grabFormElements();
         console.log(data);
+        
         socket.emit('update list',data);
-
+        location.href = "/checkIn";
     });
 
     //Grabs elements from the check in and puts it into an object

@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     //Updates Patient List
     socket.on('send list', function (data) {
-    	console.log("sent list");
+    	console.log(data);
     	refreshList(data);
   	});
 
