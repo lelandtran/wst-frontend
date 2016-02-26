@@ -18,7 +18,6 @@ $(document).ready(function(){
 
     //Update Patient List
     socket.on('send list', function (data) {
-        console.log(data);
         var compiledHtml = template(data);
         $('#visitor-list').html(compiledHtml);
     });
