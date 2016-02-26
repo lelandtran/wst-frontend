@@ -37,6 +37,14 @@ $(document).ready(function(){
        });
     });
 
+    $(document).on('click','.check-in-btn',function(){
+        var id = $(this).closest('.modal-content').find('.phone-number').attr('value');
+        socket.emit('check-in-patient',id);
+
+    });
+
+
+
 
 
 

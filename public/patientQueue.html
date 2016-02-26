@@ -1041,15 +1041,15 @@
                     <h4 class="modal-title">Check In Patient</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Confirm that this patient will be checked in.</p>
-                    <p class="patient-queue-text">{{this.firstName}}</p>
-                    <p class="patient-queue-text">{{this.lastName}}</p>
-                    <p class="patient-queue-text">{{this.appointment}}</p>
-                    <p class="patient-queue-text">{{this.phoneNumber}}</p>
-
+                    <p>First: {{this.firstName}}</p>
+                    <p>Last: {{this.lastName}}</p>
+                    <p>Appointment Time: {{this.appointment}}</p>
+                    <p>Check-In Time: {{this.checkin}}</p>
+                    <p class = "phone-number" value = "{{this.phoneNumber}}">Phone Number: {{this.phoneNumber}}</p>
+                    <p>E-Mail: {{this.email}}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Confirm</button>
+                    <button type="button" class="check-in-btn btn btn-default" data-dismiss="modal">Check in</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
             </div>

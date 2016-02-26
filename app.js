@@ -16,7 +16,8 @@ var daniel ={
 	lastName : 'Kong',
 	appointment : '2:30PM',
 	checkin : '3:00PM',
-	phoneNumber: '3109851473'
+	phoneNumber: '3109851473',
+	email: 'dakong@gmail.com'
 
 }
 
@@ -25,14 +26,13 @@ var leland ={
 	lastName : 'Tran',
 	appointment : '2:45PM',
 	checkin : '3:10PM',
-	phoneNumber: '1234567889'
+	phoneNumber: '1234567889',
+	email: 'leland@gmail.com'
 
 }
 
 
-var visitors = [daniel, leland
-
-];
+var visitors = [daniel, leland];
 
 io.on('connection', function(socket){
 	console.log('populating list');
@@ -44,30 +44,39 @@ io.on('connection', function(socket){
 	socket.on('update list',function(data){
 		console.log(data);
 		visitors.push(data);
-		io.emit('send list',visitors);
+		socket.emit('send list',visitors);
 	});
 
 	socket.on('send Id', function(data){
 		/**TODO
 		 * Search DB using a unique Identifier
 		 */
-		console.log(data);
-		var selectedVisitor;
-		for(var i = 0, len = visitors.length; i< len; i++){
-			if(visitors[i]['phoneNumber'] === data){
-				selectedVisitor = visitors[i];
-				console.log(selectedVisitor);
-				break;
-			}
-		}
+		var selectedVisitor = findVisitor(data);;
 
 		socket.emit('send visitorData', selectedVisitor);
 
+	});
+
+	socket.on('check-in-patient',function(id){
+
+		var deleteVisitors= visitors.filter(function(el){
+			return el.phoneNumber != id;
+		});
+
+		socket.emit('send list', deleteVisitors);
 
 	});
 
 });
 console.log("test");
+
+function findVisitor(data){
+	for(var i = 0, len = visitors.length; i< len; i++){
+		if(visitors[i]['phoneNumber'] === data){
+			return visitors[i];
+		}
+	}
+}
 
 server.listen(3000);
 
