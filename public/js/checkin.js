@@ -2,6 +2,15 @@ $(document).ready(function(){
 
     var socket = io();
 
+    $('#tap-to-check').on('click',function(){
+        console.log("click");
+        //$('.check-in').addClass('show');
+        $('.check-in').animate({
+            top:'30%',
+            opacity: '1'
+        }, 700);
+    });
+
     $('.check-in').on('submit', function() {
 
         console.log("data submitted");
@@ -9,7 +18,14 @@ $(document).ready(function(){
         console.log(data);
         socket.emit('update list',data);
 
+        $(this).animate({
+            top:'35%',
+            opacity:'0'
+        },0);
+
     });
+
+
 
     //Grabs elements from the check in and puts it into an object
     function grabFormElements(){
@@ -47,6 +63,8 @@ $(document).ready(function(){
         return currentTime;
 
     }
+
+
 
 
 

@@ -34,19 +34,4 @@ body {
       .visitor-container .table tbody tr .text-danger .fa {
         margin-right: 4px; }
 
-.check-in{
-    width: 250px;
-    margin-top: 75px;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
 
-}
-
-.check-in > input{
-    margin-top: 10px;
-}
-
-.submit-check-in{
-    margin-top: 25px !important;
-}

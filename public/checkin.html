@@ -3,11 +3,12 @@
 <head>
    <meta charset="UTF-8">
    <title>Check In</title>
-    <link rel="stylesheet" href = "css/dashboard.css">
+    <link rel="stylesheet" href = "css/checkin.css">
 </head>
-<body>
+<body id = 'check-in-page'>
 
-<form class = "check-in"> <!--action = "/process_post" method = "POST">-->
+
+<form class = "check-in">
     <h1>Check In</h1>
     <input id="visitor-first" type = "text" name = "first" placeholder = "First Name"> <br>
     <input id="visitor-last" type = "text" name = "last" placeholder = "Last Name"> <br>
@@ -15,6 +16,11 @@
     <br>
     <input class = "submit-check-in" type="submit" value="Submit">
 </form>
+
+
+<div id = "tap-to-check">
+    <p>Tap to check in</p>
+</div>
 
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 <script src="assets/js/jquery-1.11.3.min.js"></script>

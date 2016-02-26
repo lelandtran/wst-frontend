@@ -35,16 +35,16 @@ var leland ={
 var visitors = [daniel, leland];
 
 io.on('connection', function(socket){
-	console.log('populating list');
+	//console.log('populating list');
 
 	//Initialization of List
 	socket.emit('send list', visitors);
 
 	//Update Visitor List
 	socket.on('update list',function(data){
-		console.log(data);
 		visitors.push(data);
-		socket.emit('send list',visitors);
+		console.log(visitors);
+		socket.emit('send list', visitors);
 	});
 
 	socket.on('send Id', function(data){

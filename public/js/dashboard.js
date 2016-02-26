@@ -3,14 +3,13 @@ $(document).ready(function(){
 
     var socket = io(); //Initialize Socket
 
-
-   /***
-    * Compile all the Handle Bar Templates
-    */
+    /***
+     * Compile all the Handle Bar Templates
+     */
 
     //DashBoard Template
-	var source = $("#visitor-list-template").html();
-	var template = Handlebars.compile(source);
+    var source = $("#visitor-list-template").html();
+    var template = Handlebars.compile(source);
 
     //Modal Template
     var modal = $('#visitor-info-template').html();
@@ -19,10 +18,10 @@ $(document).ready(function(){
 
     //Update Patient List
     socket.on('send list', function (data) {
+        console.log(data);
         var compiledHtml = template(data);
         $('#visitor-list').html(compiledHtml);
     });
-
 
 
     /***
@@ -32,7 +31,7 @@ $(document).ready(function(){
        var uniqueId = $(this).attr('value');
        socket.emit('send Id',uniqueId);
        socket.on('send visitorData',function(data){
-           var compiledTemplate = modalTemplate(data);
+          var compiledTemplate = modalTemplate(data);
            $('.modal-dialog').html(compiledTemplate);
        });
     });
@@ -42,7 +41,6 @@ $(document).ready(function(){
         socket.emit('check-in-patient',id);
 
     });
-
 
 
 

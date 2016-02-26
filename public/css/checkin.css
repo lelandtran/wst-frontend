@@ -1,0 +1,60 @@
+body {
+    font-family: "Helvetica Neue";
+}
+
+body#check-in-page{
+    background-image: url('/img/check-in-stock.jpeg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+#tap-to-check{
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    background-color: deepskyblue;
+    width: 200px;
+    height: 50px;
+    bottom: 100px;
+    border-radius: 3px;
+}
+
+#tap-to-check:hover{
+    cursor: pointer;
+}
+
+
+
+#tap-to-check p{
+    font-family: "Helvetica Neue";
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+}
+
+.check-in{
+    background-color: deepskyblue;
+    position:absolute;
+    left: 50%;
+    margin-left: -125px;
+    opacity: 0;
+    width: 250px;
+    top: 25%;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.check-in h1{
+    color: white;
+}
+
+.check-in > input{
+    margin-top: 10px;
+}
+
+.submit-check-in{
+    margin-top: 25px !important;
+}
