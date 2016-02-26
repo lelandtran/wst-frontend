@@ -25,10 +25,7 @@ io.on('connection', function(socket){
 	});
 
 });
-
-
-
-
+console.log("test");
 
 server.listen(3000);
 
