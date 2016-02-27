@@ -6,9 +6,10 @@ $(document).ready(function(){
         console.log("click");
         //$('.check-in').addClass('show');
         $('.check-in').animate({
-            top:'30%',
+            top:'25%',
             opacity: '1'
         }, 700);
+        $(this).addClass('hide');
     });
 
     $('.check-in').on('submit', function() {
